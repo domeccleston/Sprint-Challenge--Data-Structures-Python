@@ -1,6 +1,7 @@
 from doubly_linked_list import DoublyLinkedList
 
 
+# ugly implementation but passes tests, array buffer is properly implemented
 class RingBuffer:
     def __init__(self, capacity):
         self.capacity = capacity
@@ -19,10 +20,7 @@ class RingBuffer:
             else:
                 to_delete = self.current.prev
                 self.storage.delete(to_delete)
-                self.current.insert_before(item)
-                if self.current == self.storage.head:
-                    self.storage.head = self.storage.head.prev
-                print(self.storage.head.value)
+                self.storage.insert_before(self.current, item)
                 self.current = self.current.prev
                 self.storage.length += 1
 
@@ -58,13 +56,3 @@ class ArrayRingBuffer:
 
 
 arb = ArrayRingBuffer(3)
-
-arb.append('a')
-arb.append('b')
-arb.append('c')
-print(arb.get())
-arb.append('d')
-print(arb.get())
-arb.append('e')
-arb.append('f')
-print(arb.get())
