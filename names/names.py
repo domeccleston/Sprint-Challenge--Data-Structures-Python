@@ -13,6 +13,7 @@ f.close()
 
 duplicates = []  # Return the list of duplicates in this data structure
 duplicates2 = {}
+
 # base: this is O(n^2)
 
 # for name_1 in names_1:
@@ -20,7 +21,7 @@ duplicates2 = {}
 #         if name_1 == name_2:
 #             duplicates.append(name_1)
 
-# mvp
+# mvp: this is o (n log n)
 
 # bst = BinarySearchTree(names_1[0])
 # count = 0
@@ -36,7 +37,6 @@ duplicates2 = {}
 
 # stretch: O(n)
 
-
 for name in names_1:
     duplicates2[name] = 1
 
@@ -47,6 +47,10 @@ for name in names_2:
 for k, v in duplicates2.items():
     if v > 1:
         duplicates.append(k)
+
+# stretch 2: arrays only
+
+
 
 end_time = time.time()
 print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")

@@ -44,13 +44,17 @@ class LinkedList:
         return False
 
     def reverse_list(self):
-        # TO BE COMPLETED
         current = self.head
+        # though this is a singly linked list, we need to keep track of the
+        # previous node to achieve O(n)
         prev = None
         while (current is not None):
+            # check if we have reached the end of the list: this
+            # is the new head
             if current.next_node is None:
                 self.head = current
             next = current.next_node
             current.next_node = prev
+            # update prev then current, so prev lags behind
             prev = current
             current = next
