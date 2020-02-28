@@ -153,3 +153,4 @@ class DoublyLinkedList:
         node.insert_before(value)
         if node == self.head:
             self.head = self.head.prev
+        self.length += 1

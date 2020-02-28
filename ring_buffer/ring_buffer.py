@@ -22,7 +22,6 @@ class RingBuffer:
                 self.storage.delete(to_delete)
                 self.storage.insert_before(self.current, item)
                 self.current = self.current.prev
-                self.storage.length += 1
 
     def get(self):
         # Note:  This is the only [] allowed
